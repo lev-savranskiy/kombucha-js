@@ -1,0 +1,47 @@
+
+* {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+}
+
+h1 {
+    text-align: center
+}
+
+mat-drawer-content {
+    padding: 2px 20px;
+
+}
+
+mat-drawer {
+    background-color: #191970;
+    color: #fff;
+}
+
+mat-drawer a {
+    color: #fff;
+}
+
+.menu-head {
+    padding: 0 16px;
+}
+
+.menu-image {
+    width: 100px;
+    padding: 16px 0 ;
+}
+
+
+.button {
+    background-color: #008CBA;
+    margin: 3px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}
+

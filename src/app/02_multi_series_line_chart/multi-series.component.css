@@ -1,0 +1,9 @@
+.axis--x path {
+//display: none;
+}
+
+.line {
+    fill: none;
+    stroke: #191970;
+    stroke-width: 1.5px;
+}

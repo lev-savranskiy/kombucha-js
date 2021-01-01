@@ -1,0 +1,16 @@
+[Unit]
+Description=XM360 Data Vis project
+After=network.target
+
+[Service]
+User=lsavra472
+Group=nobody
+Restart=always
+KillSignal=SIGQUIT
+WorkingDirectory=/var/www/kombucha
+ExecStart=/usr/local/bin/ng serve --host 0.0.0.0 --disable-host-check --base-href https://ax-sandbox.xmobiletest.com/kombucha/
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target

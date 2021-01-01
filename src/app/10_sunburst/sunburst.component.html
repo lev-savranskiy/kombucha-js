@@ -1,0 +1,23 @@
+<h2>{{title}}: {{totalSize}}</h2>
+<h3>{{message}}</h3>
+<div id="sequenceArray">
+    <app-channel-selector (valueChange)="updateChannel($event)" [channel]="channel"></app-channel-selector>
+    <div *ngIf="sequenceArray.length">
+     <span *ngFor="let item of sequenceArray; last as isLast">
+     <span *ngIf="!isLast">{{item.data.name}}
+         <svg height="15" width="15">
+            <polygon points="0,3 9,9 0,15" style="fill:#191970;"/>
+        </svg>
+     </span>
+     <span *ngIf="isLast">{{item.data.name}}</span>
+     <span *ngIf="isLast"> <input type="button" value="View {{item.data.size | i18nPlural: itemPluralMapping['session']}}" (click)="goToSessions()"
+                                  class="button"/></span>
+</span>
+    </div>
+</div>
+<div id="chart" *ngIf="!message">
+    <div id="explanation" style="visibility: visible;">
+        <span id="percentage">100%</span><br/>of sequences
+    </div>
+</div>
+<svg width="800" height="800" id="sunburst"></svg>

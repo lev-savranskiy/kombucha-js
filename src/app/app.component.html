@@ -1,0 +1,26 @@
+<mat-drawer-container fullscreen>
+    <mat-drawer mode="side" opened="true">
+        <div class="menu-head">
+            <img src="assets/images/xt360.svg" class="menu-image"/>
+            <h3>{{ title }}</h3>
+            <h4>Date: <input type="date"
+                             name="date"
+                             [(ngModel)]="date"
+                             min="2018-01-01"
+                             max="2019-12-31" />
+                <input type="button" value="Submit"  (click)="reloadData()" class="button"/>
+
+            </h4>
+            <h5>Sessions: {{devdata.length}}</h5>
+            <h5>Source: <a href="https://{{url}}" target="_blank">XT360</a></h5>
+            <hr/>
+        </div>
+
+        <mat-menu ></mat-menu>
+        <a mat-menu-item *ngFor="let item of routes" [routerLink]="item.route" routerLinkActive="active">{{ item.title }}</a>
+    </mat-drawer>
+    <mat-drawer-content>
+
+        <router-outlet></router-outlet>
+    </mat-drawer-content>
+</mat-drawer-container>

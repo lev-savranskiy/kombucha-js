@@ -1,0 +1,8 @@
+<div class="flex-container">
+    <div *ngFor="let _channel of channels">
+        <label for="channel-{{_channel.id}}">{{_channel.description}}</label>
+        <input type="radio" id="channel-{{_channel.id}}"
+               [checked]="_channel.id === channel.id"
+               (click)="clicked(_channel)" />
+    </div>
+</div>

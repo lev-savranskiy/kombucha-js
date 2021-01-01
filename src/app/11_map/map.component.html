@@ -1,0 +1,60 @@
+<h2>{{ title }} {{state}}</h2>
+<h3>{{ message }}</h3>
+<app-channel-selector (valueChange)="updateChannel($event)" [channel]="channel"></app-channel-selector>
+<div class="flex-container" *ngIf="mode=='agm'">
+    <div class="stores-table">
+    <input type="button" value="Close" (click)="setMode(null)" class="button"/>
+        <h3>Top 5 retail stores in {{state}}</h3>
+        <table>
+            <tr *ngFor="let item of storesArray">
+                <td><a (click)="goToStore(item.addr)" class="link" title="View store sessions">{{item.addr}}</a></td>
+                <td>
+                    <div  [ngStyle]="{'background-color':'#083B7B',  padding: '3px', color: '#ddd', opacity:  item.d/37 + 0.1,  width: item.d + 'px'}">{{item.d}}</div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+        <agm-map [latitude]="lat" [longitude]="lng - 0.3" [zoom]="10">
+            <agm-circle *ngFor="let item of salesGeoArray"
+                        [latitude]="item['lat']" [longitude]="item['lng']"
+                        [radius]="item['d']"
+                        [fillColor]="'#083B7B'"
+                        [circleDraggable]="false"
+                        [editable]="false">
+            </agm-circle>
+        </agm-map>
+
+</div>
+
+<div class="flex-container" *ngIf="mode=='svg'">
+    <div class="sales-table">
+        <table>
+            <tr *ngFor="let item of salesArray">
+                <td>{{item.state}}</td>
+                <td>
+
+                    <div
+                        [ngStyle]="{'background-color':'#083B7B',  padding: '3px', color: '#ddd', opacity:  item.d/maxValue + 0.1,  width: item.d + 'px'}">{{item.d}}</div>
+
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <svg width="960" height="600" viewBox="174 100 959 593" enable-background="new 174 100 959 593">
+        <g>
+            <path class="state-path" *ngFor="let item of usmapArray" (click)='setMode(item)' [attr.d]="item.d"
+                  [attr.fill]="colorsMap[item.state]">
+                <title>Click to view {{item.state}} data</title>
+            </path>
+            <g id="DC">
+                <circle [attr.fill]="colorsMap['DC']" stroke="#FFFFFF" cx="975.3" cy="351.8" r="5"/>
+            </g>
+        </g>
+    </svg>
+
+</div>
+
+

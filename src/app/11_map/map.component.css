@@ -1,0 +1,42 @@
+.flex-container {
+    display: flex;
+}
+
+.link {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.sales-table {
+    width: 200px;
+    font-size: 12px;
+}
+
+.stores-table {
+    width: 350px;
+    font-size: 12px;
+}
+
+.state-path{
+    cursor: pointer;
+}
+
+agm-map {
+    width: 600px;
+    height: 600px;
+}
+
+.button {
+    background-color: #008CBA;
+    margin: 3px;
+    border-radius: 3px;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+}
+
