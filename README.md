@@ -5,6 +5,8 @@ This project  makes dev portal data https://retail.xmobiletest.com/xm-dev-portal
 > It was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
 
+![alt text](kombucha-screen.png)
+
 ## Examples used
 
 - http://bl.ocks.org
